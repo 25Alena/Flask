@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header_left flex">
+                <nav>
+                    <ul id="menuu">
+                        <li id="logo"><img src="static/img/vector.png" alt="Horseshoes"></li>
+                        <li><a class="current" href="/admin_index">Главная</a></li>
+                        <li><a href="/Show_Commands">Записи</a></li>
+                        <li><a href="/admin/logout">Выйти</a></li>
+                    </ul>
+                </nav>
+  <table class="otstup_snizu" style="margin: auto;">
+  <tr>
+    <th>id</th>
+    <th>ФИО</th>
+    <th>Процедура</th>
+    <th>Дата</th>
+    <th>Описание</th>
+  </tr>
+{% for i in res %}
+  <tr>
+    <td>{{i.id}}</td>
+    <td>{{i.name_of_comand}}</td>
+    <td>{{i.achivements}}</td>
+    <td>{{i.identif}}</td>
+    <td class="uzko">{{i.sostav}}</td>
+    <td> <a href="/Show_Commands/del/{{i.id}}">Удалить</a></td>
+  </tr>
+{% endfor %}
+</table>
+            </div>
+        </div>
+      </header>
+</body>
